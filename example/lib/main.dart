@@ -28,22 +28,27 @@ class _MyAppState extends State<MyApp> {
               Center(
                 child: Material(
                   color: Colors.grey.shade800,
-                  child: AndroidishInkWell(
-                    child: MaterialButton(
-                      elevation: 12,
-                      child: Text(
-                        'SPLASH WHOLE RADIUS',
-                        style: TextStyle(fontSize: 24, color: Colors.white),
-                      ),
-                      padding: EdgeInsets.symmetric(horizontal: 48, vertical: 24),
-                    ),
-                    onTap: () => Scaffold.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text('See that splash!'),
-                            action: SnackBarAction(
-                              label: 'WOW',
-                              onPressed: () => Scaffold.of(context).hideCurrentSnackBar(),
+                  child: Builder(
+                    builder: (context) => AndroidishInkWell(
+                          onTap: () {
+                            Scaffold.of(context).hideCurrentSnackBar();
+                            Scaffold.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text('See that splash!'),
+                                action: SnackBarAction(
+                                  label: 'WOW',
+                                  onPressed: () => Scaffold.of(context).hideCurrentSnackBar(),
+                                ),
+                              ),
+                            );
+                          },
+                          child: MaterialButton(
+                            elevation: 12,
+                            child: Text(
+                              'SPLASH WHOLE RADIUS',
+                              style: TextStyle(fontSize: 24, color: Colors.white),
                             ),
+                            padding: EdgeInsets.symmetric(horizontal: 48, vertical: 24),
                           ),
                         ),
                   ),
@@ -53,24 +58,29 @@ class _MyAppState extends State<MyApp> {
               Center(
                 child: Material(
                   color: Colors.grey.shade800,
-                  child: AndroidishInkWell(
-                    coverWholeRadius: false,
-                    child: MaterialButton(
-                      elevation: 12,
-                      child: Text(
-                        'SPLASH 50% OF RADIUS',
-                        style: TextStyle(fontSize: 24, color: Colors.white),
-                      ),
-                      padding: EdgeInsets.symmetric(horizontal: 48, vertical: 24),
-                    ),
-                    onTap: () => Scaffold.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text('See that splash!'),
-                            action: SnackBarAction(
-                              label: 'WOW',
-                              onPressed: () => Scaffold.of(context).hideCurrentSnackBar(),
+                  child: Builder(
+                    builder: (context) => AndroidishInkWell(
+                          coverWholeRadius: false,
+                          child: MaterialButton(
+                            elevation: 12,
+                            child: Text(
+                              'SPLASH 50% OF RADIUS',
+                              style: TextStyle(fontSize: 24, color: Colors.white),
                             ),
+                            padding: EdgeInsets.symmetric(horizontal: 48, vertical: 24),
                           ),
+                          onTap: () {
+                            Scaffold.of(context).hideCurrentSnackBar();
+                            Scaffold.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text('See that splash!'),
+                                action: SnackBarAction(
+                                  label: 'WOW',
+                                  onPressed: () => Scaffold.of(context).hideCurrentSnackBar(),
+                                ),
+                              ),
+                            );
+                          },
                         ),
                   ),
                 ),
