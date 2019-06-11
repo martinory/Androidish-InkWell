@@ -8,6 +8,6 @@ This project contains a modified InkWell called AndroidishInkWell and a modified
 
 Add "AndroidishInkSplash.splashFactory" to ThemeData.
 
-Parameter "coverWholeRadius" of AndroidishInkWell if true sets the splash to 50% of the radius.
+Parameter "coverWholeRadius" of AndroidishInkWell if false sets the splash to 50% of the radius.
 
 Please see example file.

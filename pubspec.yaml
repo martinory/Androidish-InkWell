@@ -1,8 +1,8 @@
 name: androidish_ink_well
 description: An inkWell that splashes like Android.
-version: 0.0.1
-author: Martin Zimdahl
-homepage:
+version: 0.0.1+1
+author: Martin Zimdahl <martinzimdahl@outlook.com>
+homepage: https://github.com/martinory/Androidish-InkWell
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
