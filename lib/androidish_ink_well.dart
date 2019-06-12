@@ -93,14 +93,14 @@ const Duration _kSplashDurationUntilCanceled = Duration(milliseconds: 250);
 ///  * [GestureDetector], for listening for gestures without ink splashes.
 ///  * [RaisedButton] and [FlatButton], two kinds of buttons in material design.
 ///  * [IconButton], which combines [InkResponse] with an [Icon].
-class InkResponse extends StatefulWidget {
+class _InkResponse extends StatefulWidget {
   /// Creates an area of a [Material] that responds to touch.
   ///
   /// Must have an ancestor [Material] widget in which to cause ink reactions.
   ///
   /// The [containedInkWell], [highlightShape], [enableFeedback], and
   /// [excludeFromSemantics] arguments must not be null.
-  const InkResponse({
+  const _InkResponse({
     Key key,
     this.child,
     this.onTap,
@@ -483,7 +483,7 @@ class _InkResponseState<T extends InkResponse> extends State<T> with AutomaticKe
     }
   }
 
-  InteractiveInkFeature _createInkFeature(TapDownDetails details) {
+  InteractiveInkFeature _createInkFeature(TapDownDetails details, [bool coverWholeRadius]) {
     final MaterialInkController inkController = Material.of(context);
     final RenderBox referenceBox = context.findRenderObject();
     final Offset position = referenceBox.globalToLocal(details.globalPosition);
@@ -491,6 +491,8 @@ class _InkResponseState<T extends InkResponse> extends State<T> with AutomaticKe
     final RectCallback rectCallback = widget.containedInkWell ? widget.getRectCallback(referenceBox) : null;
     final BorderRadius borderRadius = widget.borderRadius;
     final ShapeBorder customBorder = widget.customBorder;
+
+    coverWholeRadius = coverWholeRadius ?? true;
 
     InteractiveInkFeature splash;
     void onRemoved() {
@@ -509,12 +511,11 @@ class _InkResponseState<T extends InkResponse> extends State<T> with AutomaticKe
       color: color,
       containedInkWell: widget.containedInkWell,
       rectCallback: rectCallback,
-      radius: widget.radius,
+      radius: widget.radius * (coverWholeRadius ? 1.0 : 0.5),
       borderRadius: borderRadius,
       customBorder: customBorder,
       onRemoved: onRemoved,
       textDirection: Directionality.of(context),
-      coverWholeRadius: widget.coverWholeRadius,
     );
 
     return splash;
@@ -720,7 +721,7 @@ class _InkResponseState<T extends InkResponse> extends State<T> with AutomaticKe
 ///  * [RaisedButton] and [FlatButton], two kinds of buttons in material design.
 ///  * [InkResponse], a variant of [InkWell] that doesn't force a rectangular
 ///    shape on the ink reaction.
-class AndroidishInkWell extends InkResponse {
+class AndroidishInkWell extends _InkResponse {
   /// Creates an ink well.
   ///
   /// Must have an ancestor [Material] widget in which to cause ink reactions.

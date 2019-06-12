@@ -5,8 +5,7 @@ Androidish InkWell is an inkWell that splashes like Android. This repository con
       androidish_ink_well: any
 
 
-    import 'package:androidish_ink_well/androidish_ink_well.dart';
-    import 'package:androidish_ink_well/androidish_ink_splash.dart';
+    import 'package:androidish_ink_well';
 
 Example of a button that splashed whole radius:
 
