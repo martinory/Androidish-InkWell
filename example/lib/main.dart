@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:androidish_ink_well/androidish_ink_splash.dart';
-import 'package:androidish_ink_well/androidish_ink_well.dart';
+import 'package:androidish_ink_well/index.dart';
 
 void main() => runApp(MyApp());
 
