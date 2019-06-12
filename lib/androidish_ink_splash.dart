@@ -41,8 +41,8 @@ double _getSplashRadiusForPositionInSize(Size bounds, Offset position) {
   return math.max(math.max(d1, d2), math.max(d3, d4)).ceilToDouble();
 }
 
-class _InkSplashFactory extends InteractiveInkFeatureFactory {
-  const _InkSplashFactory();
+class AndroidishInkSplashFactory extends InteractiveInkFeatureFactory {
+  const AndroidishInkSplashFactory();
 
   @override
   InteractiveInkFeature create({
@@ -168,7 +168,7 @@ class AndroidishInkSplash extends InteractiveInkFeature {
 
   /// Used to specify this type of ink splash for an [InkWell], InkResponse
   /// or material [Theme].
-  static const InteractiveInkFeatureFactory splashFactory = _InkSplashFactory();
+  static const InteractiveInkFeatureFactory splashFactory = AndroidishInkSplashFactory();
 
   @override
   void confirm() {
