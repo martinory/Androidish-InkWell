@@ -8,14 +8,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-
-import 'package:flutter/src/material/debug.dart';
-import 'package:flutter/src/material/feedback.dart';
-import 'package:flutter/src/material/ink_highlight.dart';
-import 'package:flutter/src/material/material.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/ink_well.dart';
-import 'package:flutter/src/material/ink_splash.dart';
+import 'package:flutter/material.dart';
 
 const Duration _kSplashDurationUntilCanceled = Duration(milliseconds: 250);
 

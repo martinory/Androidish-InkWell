@@ -6,9 +6,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-
-import 'package:flutter/src/material/ink_well.dart';
-import 'package:flutter/src/material/material.dart';
+import 'package:flutter/material.dart';
 
 const Duration _kUnconfirmedSplashDuration = Duration(seconds: 1);
 const Duration _kSplashDurationUntilCanceled = Duration(milliseconds: 250);
