@@ -1,6 +1,6 @@
 name: androidish_ink_well
 description: An inkWell that splashes like Android. This repository contains a modified InkWell and InkSplash that is similar in the behavior of Android.
-version: 1.0.1+3
+version: 1.0.2
 author: Martin Zimdahl <martinzimdahl@outlook.com>
 homepage: https://github.com/martinory/Androidish-InkWell
 

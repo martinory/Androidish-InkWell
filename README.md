@@ -7,7 +7,7 @@ Requires flutter >= 1.6.3.
       androidish_ink_well: any
 
 
-    import 'package:androidish_ink_well/index.dart';
+    import 'package:androidish_ink_well/androidish_ink_well.dart';
 
 Example of a button that splashes the whole radius:
 
