@@ -1,5 +1,7 @@
 Androidish InkWell is an inkWell that splashes like Android. This repository contains a modified InkWell and InkSplash that is similar in the behavior of Android.
 
+Requires flutter >= 1.6.3.
+
 ## Getting started
     dependencies:
       androidish_ink_well: any
@@ -7,7 +9,7 @@ Androidish InkWell is an inkWell that splashes like Android. This repository con
 
     import 'package:androidish_ink_well/index.dart';
 
-Example of a button that splashed whole radius:
+Example of a button that splashes the whole radius:
 
     Theme(
       data: Theme.of(context).copyWith(splashFactory: AndroidishInkSplash.splashFactory),
@@ -27,7 +29,7 @@ Example of a button that splashed whole radius:
       ),
     );
 
-Example of a button that splashed 50% of radius:
+Example of a button that splashes 50% of the radius:
 
     Theme(
           data: Theme.of(context).copyWith(splashFactory: AndroidishInkSplash.splashFactory),
