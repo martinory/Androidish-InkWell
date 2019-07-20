@@ -4,7 +4,7 @@ Androidish InkWell is an inkWell that splashes similar to material design. This 
 
 ## Getting started
     dependencies:
-      androidish_ink_well: ^1.0.7
+      androidish_ink_well: ^1.0.8
 
 
     import 'package:androidish_ink_well/androidish_ink_well.dart';

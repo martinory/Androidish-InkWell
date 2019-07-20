@@ -267,8 +267,9 @@ class AndroidishInkSplash extends InteractiveInkFeature {
       }
     }
 
-    final _rad = _targetRadius / 2;
-    canvas.drawCircle(center, _radius.value * _rad + _rad, paint);
+    final double k = _targetRadius * 1.1;
+    final double m = _targetRadius * .5;
+    canvas.drawCircle(center, _radius.value * k + m, paint);
     canvas.restore();
   }
 }
