@@ -1,6 +1,6 @@
 Androidish InkWell is an inkWell that splashes like Android. This repository contains a modified InkWell and InkSplash that is similar in the behavior of Android.
 
-Requires flutter >= 1.6.3.
+Requires Flutter >= 1.6.3.
 
 ## Getting started
     dependencies:

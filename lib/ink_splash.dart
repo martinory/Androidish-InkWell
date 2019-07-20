@@ -147,7 +147,7 @@ class AndroidishInkSplash extends InteractiveInkFeature {
       end: 0,
     ));
 
-    Future.delayed(_kSplashDurationUntilCanceled, () => _alphaController?.forward());
+    Future<void>.delayed(_kSplashDurationUntilCanceled, () => _alphaController?.forward());
 
     controller.addInkFeature(this);
   }
@@ -225,7 +225,8 @@ class AndroidishInkSplash extends InteractiveInkFeature {
       }
     }
 
-    canvas.drawCircle(center, _radius.value * _targetRadius, paint);
+    final _rad = _targetRadius / 2;
+    canvas.drawCircle(center, _radius.value * _rad + _rad, paint);
     canvas.restore();
   }
 }
