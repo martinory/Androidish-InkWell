@@ -1,6 +1,6 @@
 name: androidish_ink_well
 description: An InkWell that splashes like Android. This repository contains a modified InkWell and InkSplash that is similar in the behavior of Android.
-version: 1.0.4
+version: 1.0.7
 author: Martin Zimdahl <martinzimdahl@outlook.com>
 homepage: https://github.com/martinory/Androidish-InkWell
 
@@ -15,7 +15,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
