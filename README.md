@@ -1,10 +1,10 @@
 Androidish InkWell is an inkWell that splashes similar to material design. This repository contains a modified InkWell and InkSplash that behaves similar to material design.
 
-Requires Flutter >= 1.6.3.
+<img src="inkwell.gif" height="400" />
 
 ## Getting started
     dependencies:
-      androidish_ink_well: any
+      androidish_ink_well: ^1.0.4
 
 
     import 'package:androidish_ink_well/androidish_ink_well.dart';
