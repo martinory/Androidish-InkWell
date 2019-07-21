@@ -45,8 +45,8 @@ double _getSplashRadiusForPositionInSize(Size bounds, Offset position) {
   return math.max(math.max(d1, d2), math.max(d3, d4)).ceilToDouble();
 }
 
-class AndroidishInkSplashFactory extends InteractiveInkFeatureFactory {
-  const AndroidishInkSplashFactory();
+class MaterialInkSplashFactory extends InteractiveInkFeatureFactory {
+  const MaterialInkSplashFactory();
 
   @override
   InteractiveInkFeature create({
@@ -61,9 +61,8 @@ class AndroidishInkSplashFactory extends InteractiveInkFeatureFactory {
     ShapeBorder customBorder,
     double radius,
     VoidCallback onRemoved,
-    bool coverWholeRadius,
   }) {
-    return AndroidishInkSplash(
+    return MaterialInkSplash(
       controller: controller,
       referenceBox: referenceBox,
       position: position,
@@ -75,7 +74,6 @@ class AndroidishInkSplashFactory extends InteractiveInkFeatureFactory {
       radius: radius,
       onRemoved: onRemoved,
       textDirection: textDirection,
-      coverWholeRadius: coverWholeRadius,
     );
   }
 }
@@ -100,7 +98,7 @@ class AndroidishInkSplashFactory extends InteractiveInkFeatureFactory {
 ///  * [Material], which is the widget on which the ink splash is painted.
 ///  * [InkHighlight], which is an ink feature that emphasizes a part of a
 ///    [Material].
-class AndroidishInkSplash extends InteractiveInkFeature {
+class MaterialInkSplash extends InteractiveInkFeature {
   /// Begin a splash, centered at position relative to [referenceBox].
   ///
   /// The [controller] argument is typically obtained via
@@ -116,7 +114,7 @@ class AndroidishInkSplash extends InteractiveInkFeature {
   /// This is the default.
   ///
   /// When the splash is removed, `onRemoved` will be called.
-  AndroidishInkSplash({
+  MaterialInkSplash({
     @required MaterialInkController controller,
     @required RenderBox referenceBox,
     @required TextDirection textDirection,
@@ -128,15 +126,13 @@ class AndroidishInkSplash extends InteractiveInkFeature {
     ShapeBorder customBorder,
     double radius,
     VoidCallback onRemoved,
-    bool coverWholeRadius,
   })  : assert(textDirection != null),
         _position = position,
         _borderRadius = borderRadius ?? BorderRadius.zero,
         _customBorder = customBorder,
-        _targetRadius = (radius ??
-                _getTargetRadius(
-                    referenceBox, containedInkWell, rectCallback, position)) *
-            (coverWholeRadius == true ? 1.0 : 0.5),
+        _targetRadius = radius ??
+            _getTargetRadius(
+                referenceBox, containedInkWell, rectCallback, position),
         _clipCallback =
             _getClipCallback(referenceBox, containedInkWell, rectCallback),
         _repositionToReferenceBox = !containedInkWell,
@@ -172,8 +168,8 @@ class AndroidishInkSplash extends InteractiveInkFeature {
 
     _alphaFadeInController.forward();
 
-    Future<void>.delayed(
-        _kSplashDurationUntilCanceled, () => _alphaController?.forward());
+    // Future<void>.delayed(
+    //     _kSplashDurationUntilCanceled, () => _alphaController?.forward());
 
     controller.addInkFeature(this);
   }
@@ -197,7 +193,7 @@ class AndroidishInkSplash extends InteractiveInkFeature {
   /// Used to specify this type of ink splash for an [InkWell], InkResponse
   /// or material [Theme].
   static const InteractiveInkFeatureFactory splashFactory =
-      AndroidishInkSplashFactory();
+      MaterialInkSplashFactory();
 
   @override
   void confirm() {
@@ -229,8 +225,6 @@ class AndroidishInkSplash extends InteractiveInkFeature {
     _radiusController.dispose();
     _alphaController.dispose();
     _alphaController = null;
-    _alphaFadeInController?.dispose();
-    _alphaFadeInController = null;
     super.dispose();
   }
 
@@ -267,8 +261,8 @@ class AndroidishInkSplash extends InteractiveInkFeature {
       }
     }
 
-    final double k = _targetRadius * 1.1;
-    final double m = _targetRadius * .5;
+    final double k = _targetRadius * 1.05;
+    final double m = _targetRadius * .25;
     canvas.drawCircle(center, _radius.value * k + m, paint);
     canvas.restore();
   }

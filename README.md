@@ -1,54 +1,47 @@
-Androidish InkWell is an inkWell that splashes similar to material design. This repository contains a modified InkWell and InkSplash that behaves similar to material design.
-
-<img src="https://raw.githubusercontent.com/martinory/Androidish-InkWell/master/inkwell.gif" height="400" />
+In version 1, the ripple effect would start not on tap down but on release. In version 2, it has been changed to the original behaviour, but with an ink splash that is faster, fades in and with a radius that is not zero.
 
 ## Getting started
     dependencies:
-      androidish_ink_well: ^1.0.8
+      androidish_ink_well: ^2.0.0
 
+    import 'package:androidish_ink_well/material_ink_splash.dart';
 
-    import 'package:androidish_ink_well/androidish_ink_well.dart';
+Add splashFactory: MaterialInkSplash.splashFactory to Theme.
 
-Example of a button that splashes the whole radius:
+```
+import 'package:flutter/material.dart';
+import 'package:androidish_ink_well/material_ink_splash.dart';
 
-    Theme(
-      data: Theme.of(context).copyWith(splashFactory: AndroidishInkSplash.splashFactory),
-      child: Material(
-        color: Colors.grey.shade800,
-        child: AndroidishInkWell(
-          onTap: () {},
-          child: MaterialButton(
-            elevation: 12,
-            child: Text(
-              'SPLASH WHOLE RADIUS',
-              style: TextStyle(fontSize: 24, color: Colors.white),
+void main() => runApp(MyApp());
+
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Theme(
+          data: Theme.of(context)
+              .copyWith(splashFactory: MaterialInkSplash.splashFactory),
+          child: Center(
+            child: Material(
+              child: MaterialButton(
+                child: Text('BUTTON'),
+                onPressed: () {},
+              ),
             ),
-            padding: EdgeInsets.symmetric(horizontal: 48, vertical: 24),
           ),
         ),
       ),
     );
+  }
+}
+```
 
-Example of a button that splashes 50% of the radius:
-
-    Theme(
-          data: Theme.of(context).copyWith(splashFactory: AndroidishInkSplash.splashFactory),
-          child: Material(
-            color: Colors.grey.shade800,
-            child: AndroidishInkWell(
-              coverWholeRadius: false,
-              child: MaterialButton(
-                elevation: 12,
-                child: Text(
-                  'SPLASH 50% OF RADIUS',
-                  style: TextStyle(fontSize: 24, color: Colors.white),
-                ),
-                padding: EdgeInsets.symmetric(horizontal: 48, vertical: 24),
-              ),
-              onTap: () {},
-            ),
-          ),
-        );
 ## Example
 - [Example app](https://github.com/martinory/Androidish-InkWell/tree/master/example)
 

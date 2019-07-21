@@ -1,4 +1,3 @@
 library androidish_ink_well;
 
-export 'ink_splash.dart';
-export 'ink_well.dart';
+export 'material_ink_splash.dart';
