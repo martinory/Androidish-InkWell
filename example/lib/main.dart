@@ -14,8 +14,9 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         body: Theme(
-          data: Theme.of(context)
-              .copyWith(splashFactory: MaterialInkSplash.splashFactory),
+          data: Theme.of(context).copyWith(
+            splashFactory: MaterialInkSplash.splashFactory,
+          ),
           child: Center(
             child: Material(
               child: MaterialButton(
